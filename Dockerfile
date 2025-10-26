@@ -1,11 +1,14 @@
-# Use the official Nginx image to serve static content
+# Use an official lightweight Nginx image
 FROM nginx:alpine
 
-# Copy your static files into Nginx's default public directory
-COPY . /usr/share/nginx/html
+# Remove default nginx static files
+RUN rm -rf /usr/share/nginx/html/*
 
-# Expose port 80 for web traffic
+# Copy your React build files to Nginx's html directory
+COPY build /usr/share/nginx/html
+
+# Expose port 80
 EXPOSE 80
 
-# Nginx automatically starts as the container's main process
-
+# Start Nginx when the container runs
+CMD ["nginx", "-g", "daemon off;"]
