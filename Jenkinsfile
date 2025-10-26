@@ -13,6 +13,7 @@ pipeline {
     }
     stage('Build Image') {
       steps {
+        sh 'chmod +x ${WORKSPACE}/build.sh'
         sh './build.sh'
       }
     }
