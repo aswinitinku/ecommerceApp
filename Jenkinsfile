@@ -22,7 +22,7 @@ pipeline {
         script {
           def tag = "${env.BRANCH_NAME == 'master' ? 'prod' : 'dev'}"
           def targetRepo = env.BRANCH_NAME == 'master' ? env.PROD_REPO : env.DEV_REPO
-          sh "docker tag devops-app:latest ${targetRepo}:latest"
+          sh "docker tag react-static-app:latest ${targetRepo}:latest"
           sh "echo $DOCKERHUB_CRED_PSW | docker login -u $DOCKERHUB_CRED_USR --password-stdin"
           sh "docker push ${targetRepo}:latest"
         }
