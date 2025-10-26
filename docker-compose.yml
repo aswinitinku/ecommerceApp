@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    image: devops-app:latest
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+
