@@ -1,1 +1,2 @@
- File created to test the branch merge. Testing merge 1
+ File created to test the branch merge. Testing merge 2
+
